@@ -2,6 +2,8 @@
     <q-page>
        <!-- header -->
       <Header />
+
+      <SubHeader />
   
     </q-page>
   </template>
