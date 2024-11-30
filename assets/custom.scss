@@ -1,3 +1,23 @@
 .q-btn--rectangle {
   border-radius: 6px;
 }
+.q-pa-s {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+  height: auto;
+  position: relative;
+  left: 340px;
+}
+.q-col {
+  display: flex;
+  flex-direction: row;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px;
+}
+.card-item{
+  height: 280px;
+  width: 280px;
+}

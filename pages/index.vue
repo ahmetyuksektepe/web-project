@@ -11,6 +11,9 @@
       </div>
     </div>
 
+    <div class="q-pa-s">
+      <ProductCard />
+    </div>
   
     </q-page>
   </template>
