@@ -21,3 +21,25 @@
   height: 280px;
   width: 280px;
 }
+.carousel-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.slide-text {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+.q-pa {
+  width: 1200px;
+  height: auto;
+  position: relative;
+  left: 12px;
+}
+.my-card{  
+  width: 100%;
+  max-width: 350px;
+}

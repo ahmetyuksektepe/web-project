@@ -14,6 +14,19 @@
     <div class="q-pa-s">
       <ProductCard />
     </div>
+
+    <div class="q-ma-md">
+      <MostSearched />
+    </div>
+
+    <!-- yorumlar(review) buraya gelecek -->
+
+
+    <div class="q-pa-sm q-gutter-lg">
+      <div class="text-weigth-bold justify-center">
+        <q-img src="alt.png" ></q-img>
+      </div>
+    </div>
   
     </q-page>
   </template>
