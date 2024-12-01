@@ -55,7 +55,7 @@
       <q-separator />
   
       <div>
-        <q-btn label="Kaydol" type="submit" color="teal-5" />
+        <q-btn label="Kaydol" type="submit" color="teal-5" @click="addUye" />
         <q-btn
           size="15px"
           elevated

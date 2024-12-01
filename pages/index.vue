@@ -25,8 +25,6 @@
       <ReviewCard />
     </div>
 
-    <!-- yorumlar(review) buraya gelecek -->
-
 
     <div class="q-pa-sm q-gutter-lg">
       <div class="text-weigth-bold justify-center">
