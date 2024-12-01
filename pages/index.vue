@@ -19,6 +19,12 @@
       <MostSearched />
     </div>
 
+    <div class="review-list-container">
+      <ReviewCard />
+      <ReviewCard />
+      <ReviewCard />
+    </div>
+
     <!-- yorumlar(review) buraya gelecek -->
 
 
