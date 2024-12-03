@@ -56,8 +56,8 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
-  max-width: 2000px; /* Genişlik artırıldı */
-  min-height: 150px; /* Minimum yükseklik eklendi */
+  max-width: 2000px; 
+  min-height: 150px; 
 }
 
 .review-image {
@@ -90,15 +90,68 @@
 }
 
 .review-text {
-  font-size: 16px; /* Yorum yazısı büyüklüğü artırıldı */
+  font-size: 16px; 
   color: #555;
   margin-top: 10px;
 }
 .review-list-container {
   display: flex; /* Flexbox kullanımı */
-  flex-direction: column; /* Alt alta hizalama */
-  justify-content: center; /* Yatayda ortala */
-  align-items: center; /* Dikeyde ortala */
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
   gap: 20px; /* Bileşenler arasında boşluk */
   padding: 20px;
+}
+
+.container {
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+
+
+  background-image: url("https://cdn.dolap.com/web/images/bg-footer.jpg"); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+}
+
+.google-apple-btns {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.footer-nav-block {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-nav {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+}
+
+.nav-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.social-icons li a {
+  font-size: 20px;
+  color: #555;
+}
+
+.social-icons li a:hover {
+  color: #007bff;
 }

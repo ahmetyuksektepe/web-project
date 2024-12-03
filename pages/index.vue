@@ -26,11 +26,7 @@
     </div>
 
 
-    <div class="q-pa-sm q-gutter-lg">
-      <div class="text-weigth-bold justify-center">
-        <q-img src="alt.png" ></q-img>
-      </div>
-    </div>
+    <Footer />
   
     </q-page>
   </template>
