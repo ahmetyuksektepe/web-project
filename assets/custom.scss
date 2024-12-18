@@ -1,26 +1,36 @@
 .q-btn--rectangle {
   border-radius: 6px;
 }
+
 .q-pa-s {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px; 
   height: auto;
-  position: relative;
-  left: 340px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
 }
+
 .q-col {
   display: flex;
   flex-direction: row;
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 30px;
+  box-sizing: border-box;
 }
-.card-item{
-  height: 280px;
-  width: 280px;
+
+.card-item {
+  width: 100%;
+  max-width: 280px;
+  height: auto; 
+  box-sizing: border-box;
 }
+
 .carousel-slide {
   display: flex;
   flex-direction: column;
@@ -28,36 +38,47 @@
   align-items: center;
   text-align: center;
 }
+
 .slide-text {
   margin-top: 1rem;
   font-size: 1.2rem;
   color: #333;
 }
+
 .q-pa {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px; 
   height: auto;
-  position: relative;
-  left: 12px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
 }
-.my-card{  
+
+.my-card {  
   width: 100%;
   max-width: 350px;
+  box-sizing: border-box;
 }
-.example-item{
-  height: 280px;
-  width: 280px;
+
+.example-item {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  box-sizing: border-box;
 }
+
 .review-card {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 15px; /* Resim ve içerik arasındaki boşluk */
+  gap: 15px; 
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
   max-width: 2000px; 
   min-height: 150px; 
+  box-sizing: border-box;
 }
 
 .review-image {
@@ -75,7 +96,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 18px; /* Başlık font büyüklüğü */
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -94,21 +115,24 @@
   color: #555;
   margin-top: 10px;
 }
+
 .review-list-container {
-  display: flex; /* Flexbox kullanımı */
+  display: flex;
   flex-direction: column; 
   justify-content: center; 
   align-items: center; 
-  gap: 20px; /* Bileşenler arasında boşluk */
+  gap: 20px; 
   padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .container {
-  margin: auto;
+  margin: 0 auto;
   padding: 20px;
+  box-sizing: border-box;
   background-color: #f9f9f9;
-
-
   background-image: url("https://cdn.dolap.com/web/images/bg-footer.jpg"); 
   background-size: cover; 
   background-repeat: no-repeat; 
@@ -120,18 +144,21 @@
   gap: 15px;
   justify-content: center;
   margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .footer-nav-block {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 .footer-nav {
   flex: 1;
   min-width: 200px;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .nav-title {
@@ -145,11 +172,14 @@
   gap: 15px;
   list-style: none;
   padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .social-icons li a {
   font-size: 20px;
   color: #555;
+  text-decoration: none;
 }
 
 .social-icons li a:hover {
