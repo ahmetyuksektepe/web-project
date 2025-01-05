@@ -15,6 +15,7 @@
   "dependencies": {
     "@quasar/extras": "^1.16.4",
     "@splidejs/vue-splide": "^0.6.12",
+    "firebase": "^11.1.0",
     "quasar": "^2.12.0"
   }
 }

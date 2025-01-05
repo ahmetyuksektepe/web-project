@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   css: ['@/assets/custom.scss'],
   modules: ['nuxt-quasar-ui'],
+
+  plugins: [
+    '~/plugins/firebase.js'
+  ],
+
   quasar: {
     plugins: [
       'BottomSheet',
@@ -22,6 +27,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   app: {
     head: {
       title: 'nuxt dolap',
@@ -31,11 +37,14 @@ export default defineNuxtConfig({
         { name: 'description', content: 'web projesi' },
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, 
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon1.ico' }, // Favicon ayarı
       ],
     },
   },
+
   build: {
-    transpile: ['quasar'] 
+    transpile: ['quasar'] // Quasar modülünü derle
   },
+
+  compatibilityDate: '2025-01-05',
 });
