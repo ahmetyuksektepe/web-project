@@ -13,9 +13,11 @@
     "sass": "^1.62.1"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.9.0",
     "@quasar/extras": "^1.16.4",
     "@splidejs/vue-splide": "^0.6.12",
     "firebase": "^11.1.0",
+    "pinia": "^2.3.0",
     "quasar": "^2.12.0"
   }
 }

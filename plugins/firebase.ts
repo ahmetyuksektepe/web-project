@@ -1,6 +1,8 @@
-// plugins/firebase.js
+// plugins/firebase.ts
+import { defineNuxtPlugin } from '#app'
 import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
+import { getFirestore, Firestore } from 'firebase/firestore'
+import type { FirebaseApp } from 'firebase/app'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const firebaseConfig = {
@@ -14,10 +16,10 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   // Firebase App'i başlat
-  const firebaseApp = initializeApp(firebaseConfig)
+  const firebaseApp: FirebaseApp = initializeApp(firebaseConfig)
 
   // Firestore örneğini oluştur
-  const db = getFirestore(firebaseApp)
+  const db: Firestore = getFirestore(firebaseApp)
 
   // Nuxt app'e firebaseApp ve db'yi enjekte et
   nuxtApp.provide('firebase', firebaseApp)

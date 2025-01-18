@@ -1,10 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   css: ['@/assets/custom.scss'],
-  modules: ['nuxt-quasar-ui'],
+  modules: ['nuxt-quasar-ui', '@pinia/nuxt'],
 
   plugins: [
-    '~/plugins/firebase.js'
+    '~/plugins/firebase.ts'
   ],
 
   quasar: {
