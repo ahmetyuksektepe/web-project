@@ -1,5 +1,5 @@
 <template>
-  <div class="q-mt-none">
+  <div class="q-mt-none" style="padding: 20px 0; min-height: 120px; background-color: #f8f8f8;">
     <div class="row items-center justify-center q-gutter-md">
       <q-img
         src="https://cdn.dolap.com/web/images/logo-5.svg"
@@ -46,7 +46,6 @@
         />
       </div>
     </div>
-
     <!-- CartDrawer -->
     <CartDrawer v-model="cartDrawer" />
   </div>
@@ -62,6 +61,11 @@ const arama = ref('');
 const cartDrawer = ref(false);
 const router = useRouter();
 const authStore = useAuthStore();
+const isCartVisible = ref(false);
+
+const toggleCartSidebar = () => {
+  isCartVisible.value = !isCartVisible.value;
+};
 
 const navigateToSignup = () => {
   router.push('/Kaydol');
@@ -72,7 +76,13 @@ const navigateToHome = () => {
 };
 
 const openCart = () => {
-  cartDrawer.value = true;
+  if(cartDrawer.value) {
+    cartDrawer.value = false;
+    return;
+  }
+  else{
+    cartDrawer.value = true;
+  }
 };
 // Çıkış Yapma
 const logout = () => {

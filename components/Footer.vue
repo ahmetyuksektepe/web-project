@@ -16,7 +16,6 @@
 
       <!-- Navigasyon -->
       <div class="footer-nav-block">
-        
         <div class="footer-nav">
           <strong class="nav-title">Kategoriler</strong>
           <ul>
@@ -35,7 +34,6 @@
           </ul>
         </div>
 
-        <!-- Popüler Aramalar -->
         <div class="footer-nav">
           <strong class="nav-title">Popüler Aramalar</strong>
           <ul>
@@ -54,7 +52,6 @@
           </ul>
         </div>
 
-        <!-- Dolap Hakkında -->
         <div class="footer-nav">
           <strong class="nav-title">Dolap Hakkında</strong>
           <ul>
@@ -76,7 +73,6 @@
         </div>
       </div>
 
-    
       <div itemscope="itemscope" itemtype="http://schema.org/Organization">
         <NuxtLink itemprop="url" href="https://dolap.com" />
         <ul class="social-icons">
@@ -116,6 +112,13 @@
   </footer>
 </template>
 
-<script setup>
-</script>
+<style scoped>
+footer a {
+  color: white; /* Varsayılan yazı rengi beyaz */
+  text-decoration: none; /* Alt çizgiyi kaldırır */
+}
 
+footer a:hover {
+  color: black; /* Üzerine gelindiğinde siyah yapar */
+}
+</style>

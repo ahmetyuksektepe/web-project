@@ -1,5 +1,6 @@
 <template>
-  <q-form @submit.prevent="onSubmit" class="q-gutter-md">
+
+<q-form @submit.prevent="onSubmit" class="q-gutter-md">
     <q-input
       filled
       v-model="email"
@@ -26,10 +27,10 @@
     </q-input>
 
     <div class="row justify-between q-mt-md">
-      <q-btn label="Giriş Yap" type="submit" color="primary" class="full-width" />
+      <q-btn label="Giriş Yap" type="submit" color="green" class="full-width" />
       <q-btn
         flat
-        label="Şifremi Unuttum"
+        label="Şifreni mi Unuttum"
         color="primary"
         @click="navigateToForgotPassword"
       />

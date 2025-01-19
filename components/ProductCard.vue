@@ -47,7 +47,9 @@
           </div>
         </q-card-actions>
         <q-card-actions>
+          <!-- Sepete Ekle Butonu: Yalnızca giriş yapılmışsa gösterilir -->
           <q-btn
+            v-if="authStore.user"
             size="8px"
             unelevated
             unrounded
@@ -65,10 +67,12 @@
 import { ref, onMounted } from "vue";
 import { useCartStore } from "~/stores/cart"; // Sepet için mevcut store
 import { useItems2Store } from "~/stores/items"; // Yeni Pinia store
+import { useAuthStore } from "~/stores/auth"; // Giriş durumu için Pinia store
 
 const ratingModel = ref(4);
 const cartStore = useCartStore(); // Sepet store'u
 const items2Store = useItems2Store(); // Yeni store
+const authStore = useAuthStore(); // Giriş durumu store'u
 
 // Sepete ürün ekleme
 const addToCart = (item) => {

@@ -6,15 +6,6 @@
           <span class="text-orange-500 text-xl">🛒</span>
           <span>Sepetim</span>
         </h2>
-        <!-- Close Button -->
-        <q-btn
-          flat
-          round
-          icon="close"
-          @click="closeDrawer"
-          color="black"
-          size="sm"
-        />
       </div>
   
       <!-- Cart Items -->
@@ -59,14 +50,10 @@
   import { useQuasar } from 'quasar';
   
   const cartStore = useCartStore();
-  const drawer = ref(false); // Sepet çekmecesi durumu
   const $q = useQuasar(); // Quasar Notify için
   
   // Çekmeceyi kapatma işlevi
-  const closeDrawer = () => {
-    drawer.value = false; // Çekmeceyi kapatır
 
-  };
   
   // Satın alma işlevi
   const checkout = () => {
@@ -80,7 +67,6 @@
     }
   
     cartStore.clearCart(); // Sepeti temizle
-    drawer.value = false; // Çekmeceyi kapat
   
     $q.notify({
       type: 'positive',
@@ -91,22 +77,6 @@
   </script>
   
   <style scoped>
-  .cart-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
   
-  .book-image {
-    width: 80px;
-    height: 100px;
-    object-fit: cover;
-  }
-  
-  .cart-item-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
   </style>
   
