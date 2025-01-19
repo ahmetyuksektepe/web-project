@@ -56,6 +56,7 @@
 
     <div>
       <q-btn label="Kaydol" type="submit" color="teal-5" />
+      <q-btn label="Giriş Yap" color="teal-5" @click="navigateToLogin" />
       <q-btn
         size="15px"
         elevated
@@ -71,27 +72,14 @@
           <q-card-section class="row items-center q-pb-none">
             <div class="text-h6">Üyelikler</div>
             <q-space />
-            <q-btn
-              icon="delete"
-              flat
-              round
-              color="teal-5"
-              label="Tümünü Sil"
-              @click="deleteUyeler"
-            />
-            <q-btn
-              flat
-              round
-              color="teal-5"
-              label="Yenile"
-              @click="loadUyeler"
-            />
+            <q-btn icon="delete" flat round color="teal-5" label="Tümünü Sil" @click="deleteUyeler" />
+            <q-btn flat round color="teal-5" label="Yenile" @click="loadUyeler" />
             <q-btn icon="close" flat round dense v-close-popup />
           </q-card-section>
           <div class="q-pa-md flex justify-center">
             <div style="max-width: 90%; width: 300px">
               <q-item
-                v-for="item in uyeler"
+                v-for="item in uyelerStore.uyeler"
                 :key="item.id"
                 clickable
                 v-ripple
@@ -136,15 +124,15 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { useQuasar } from "quasar";
-import { useNuxtApp } from '#app'
-import { collection, query, getDocs, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { useUyelerStore } from "~/stores/uyeler";
 
 const $q = useQuasar();
+const router = useRouter();
+const uyelerStore = useUyelerStore();
 
 // Form alanları
-const uyeler = ref([]);
-const icon = ref(false);
 const name = ref("");
 const age = ref(null);
 const email = ref("");
@@ -160,18 +148,24 @@ const editingUser = ref({
   isim: "",
   email: "",
   telefon: "",
-  yas: null
+  yas: null,
 });
 
-const { $db } = useNuxtApp() // firebase plugin ile enjekte edilen Firestore instance
+// Giriş yap butonu için yönlendirme
+const navigateToLogin = () => {
+  router.push("/Giris");
+};
 
+// Dialog işlemleri
+const icon = ref(false);
 const toggleDialog = async () => {
   icon.value = !icon.value;
   if (icon.value) {
-    await loadUyeler();
+    await uyelerStore.loadUyeler();
   }
 };
 
+// CRUD işlemleri
 const onSubmit = async () => {
   if (!accept.value) {
     $q.notify({
@@ -183,8 +177,15 @@ const onSubmit = async () => {
     return;
   }
 
-  // Üye ekleme
-  await addUye();
+  await uyelerStore.addUye({
+    email: email.value,
+    isim: name.value,
+    sifre: password.value,
+    telefon: phone.value,
+    yas: age.value,
+  });
+
+  resetForm();
   $q.notify({
     color: "green-4",
     textColor: "white",
@@ -193,48 +194,13 @@ const onSubmit = async () => {
   });
 };
 
-const addUye = async () => {
-  const uye = {
-    email: email.value,
-    isim: name.value,
-    sifre: password.value,
-    telefon: phone.value,
-    yas: age.value,
-  };
-
-  const docRef = await addDoc(collection($db, "uyeler"), uye);
-  uye.id = docRef.id;
-  uyeler.value.push(uye);
-
-  resetForm();
-};
-
-const loadUyeler = async () => {
-  uyeler.value = [];
-  const q = query(collection($db, "uyeler"));
-  const querySnapshot = await getDocs(q);
-
-  querySnapshot.forEach((docSnap) => {
-    const data = docSnap.data();
-    const { email, isim, telefon, yas } = data;
-    uyeler.value.push({ id: docSnap.id, email, isim, telefon, yas });
-  });
-};
-
 const deleteUyeler = async () => {
-  const qSnap = await getDocs(collection($db, "uyeler"));
-  const promises = [];
-  qSnap.forEach((docSnap) => {
-    promises.push(deleteDoc(docSnap.ref));
-  });
-  await Promise.all(promises);
-
-  uyeler.value = [];
+  await uyelerStore.deleteUyeler();
   $q.notify({
     color: "green-4",
     textColor: "white",
     icon: "cloud_done",
-    message: "Üyelikleriniz silindi, sayfayı yenileyiniz!",
+    message: "Üyelikleriniz silindi!",
   });
 };
 
@@ -244,23 +210,14 @@ const editUye = (user) => {
 };
 
 const updateUye = async () => {
-  const userRef = doc($db, "uyeler", editingUser.value.id);
-  await updateDoc(userRef, {
-    isim: editingUser.value.isim,
-    email: editingUser.value.email,
-    telefon: editingUser.value.telefon,
-    yas: editingUser.value.yas
-  });
-  
+  await uyelerStore.updateUye(editingUser.value);
   $q.notify({
     color: "green-4",
     textColor: "white",
     icon: "cloud_done",
-    message: "Üye başarıyla güncellendi!"
+    message: "Üye başarıyla güncellendi!",
   });
-
   editDialog.value = false;
-  await loadUyeler(); // Listeyi günceller
 };
 
 const resetForm = () => {

@@ -198,3 +198,21 @@
   min-width: 120px; /* Minimum genişlik */
   max-width: 200px; /* Maksimum genişlik */
 }
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.book-image {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.cart-item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
