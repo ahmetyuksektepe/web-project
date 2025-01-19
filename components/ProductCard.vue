@@ -1,7 +1,7 @@
 <template>
   <div class="row justify-center q-gutter-sm">
     <q-intersection
-      v-for="item in items2"
+      v-for="item in items2Store.items2"
       :key="item.id"
       class="card-item"
       style="margin-bottom: 60px; height: 290px; width: 290px"
@@ -47,7 +47,14 @@
           </div>
         </q-card-actions>
         <q-card-actions>
-          <q-btn size="8px" unelevated unrounded color="cyan" icon="add" />
+          <q-btn
+            size="8px"
+            unelevated
+            unrounded
+            color="cyan"
+            icon="add"
+            @click="addToCart(item)"
+          />
         </q-card-actions>
       </q-card>
     </q-intersection>
@@ -55,28 +62,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { collection, query, getDocs } from "firebase/firestore"
-import { useNuxtApp } from '#app'
+import { ref, onMounted } from "vue";
+import { useCartStore } from "~/stores/cart"; // Sepet için mevcut store
+import { useItems2Store } from "~/stores/items"; // Yeni Pinia store
 
-const ratingModel = ref(4)
-const items2 = ref([])
+const ratingModel = ref(4);
+const cartStore = useCartStore(); // Sepet store'u
+const items2Store = useItems2Store(); // Yeni store
 
-const { $db } = useNuxtApp()
+// Sepete ürün ekleme
+const addToCart = (item) => {
+  cartStore.addToCart(item);
+};
 
-const getItems = async () => {
-  const q = query(collection($db, "dolapilan"))
-  const querySnapshot = await getDocs(q)
-
-  items2.value = []
-  querySnapshot.forEach((docSnap) => {
-    const data = docSnap.data()
-    const { avatar, fiyat, id, info, rate, satici, source } = data
-    items2.value.push({ avatar, fiyat, id: docSnap.id || id, info, rate, satici, source })
-  })
-}
-
+// Bileşen yüklendiğinde Firestore'dan veri çek
 onMounted(() => {
-  getItems()
-})
+  items2Store.fetchItems();
+});
 </script>
