@@ -185,3 +185,16 @@
 .social-icons li a:hover {
   color: #007bff;
 }
+
+.wrap-menu {
+  display: flex;
+  flex-wrap: wrap; /* Öğelerin alt satıra inmesini sağlar */
+  gap: 16px; /* Öğeler arasında boşluk bırakır */
+  padding: 8px; /* Menü içi boşluk */
+}
+
+.wrap-menu q-item {
+  flex: 1 1 calc(33.33% - 16px); /* Genişlik yüzdesi ve boşluklar */
+  min-width: 120px; /* Minimum genişlik */
+  max-width: 200px; /* Maksimum genişlik */
+}
